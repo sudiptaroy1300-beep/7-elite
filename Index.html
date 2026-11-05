@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7ELITE | Premium Clothing</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f8f7f4;color:#171717}
+header{background:#111;color:white;padding:20px;text-align:center}
+.logo{font-size:30px;font-weight:900;letter-spacing:5px}
+.logo span{color:#c5a46d}
+nav{margin-top:15px}
+nav a{color:white;text-decoration:none;margin:0 12px;font-size:13px}
+.hero{background:#171717;color:white;text-align:center;padding:80px 20px}
+.hero h1{font-size:45px;letter-spacing:4px}
+.hero p{margin:20px 0;color:#ccc}
+.btn{display:inline-block;background:#c5a46d;color:#111;padding:13px 25px;text-decoration:none;font-weight:bold;border:none;cursor:pointer}
+section{padding:50px 20px}
+h2{text-align:center;margin-bottom:30px;letter-spacing:2px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1000px;margin:auto}
+.card{background:white;padding:15px;text-align:center;border:1px solid #eee}
+.product-img{height:220px;background:#e8e5df;display:flex;align-items:center;justify-content:center;font-size:50px}
+.card h3{margin:15px 0 8px}
+.price{color:#9c7b43;font-weight:bold;margin-bottom:15px}
+.card button{width:100%}
+.story{text-align:center;background:#eee;padding:60px 20px}
+.story p{max-width:650px;margin:auto;line-height:1.8;color:#555}
+footer{background:#111;color:white;text-align:center;padding:35px 20px}
+footer a{color:#c5a46d}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 20px;border-radius:40px;text-decoration:none;font-weight:bold;box-shadow:0 4px 15px #0003}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">7<span>ELITE</span></div>
+<nav>
+<a href="#home">HOME</a>
+<a href="#shop">SHOP</a>
+<a href="#story">ABOUT</a>
+<a href="#contact">CONTACT</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>ELEVATE YOUR STYLE</h1>
+<p>Premium Essentials. Timeless Fashion. Everyday Luxury.</p>
+<a href="#shop" class="btn">SHOP COLLECTION</a>
+</section>
+
+<section id="shop">
+<h2>OUR COLLECTION</h2>
+<div class="products">
+
+<div class="card">
+<div class="product-img">👕</div>
+<h3>Black Essential Tee</h3>
+<div class="price">৳850</div>
+<button class="btn" onclick="order('Black Essential Tee',850)">ORDER NOW</button>
+</div>
+
+<div class="card">
+<div class="product-img">👕</div>
+<h3>Ivory Essential Tee</h3>
+<div class="price">৳850</div>
+<button class="btn" onclick="order('Ivory Essential Tee',850)">ORDER NOW</button>
+</div>
+
+<div class="card">
+<div class="product-img">👔</div>
+<h3>Classic Oxford Shirt</h3>
+<div class="price">৳1450</div>
+<button class="btn" onclick="order('Classic Oxford Shirt',1450)">ORDER NOW</button>
+</div>
+
+<div class="card">
+<div class="product-img">👖</div>
+<h3>Straight Fit Pants</h3>
+<div class="price">৳1650</div>
+<button class="btn" onclick="order('Straight Fit Pants',1650)">ORDER NOW</button>
+</div>
+
+</div>
+</section>
+
+<section class="story" id="story">
+<h2>THE 7ELITE STORY</h2>
+<p>
+7ELITE represents confidence, timeless style, and everyday luxury.
+Our mission is to bring premium fashion and classic essentials
+to people who appreciate quality and simplicity.
+</p>
+</section>
+
+<footer id="contact">
+<h2>7ELITE</h2>
+<p>Premium Clothing | Bangladesh</p>
+<p>WhatsApp: 01330733807</p>
+<p>© 2026 7ELITE. All Rights Reserved.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/8801330733807" target="_blank">WhatsApp</a>
+
+<script>
+function order(product,price){
+let message="Hello 7ELITE! I want to order: "+product+
+" | Price: ৳"+price;
+window.open("https://wa.me/8801330733807?text="+encodeURIComponent(message),"_blank");
+}
+</script>
+
+</body>
+</html>
+
