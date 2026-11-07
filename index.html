@@ -1,118 +1,531 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7ELITE | Premium Clothing</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="7ELITE Clothing Co. — premium essentials, confident style.">
+<title>7ELITE — Wear the Elite</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f8f7f4;color:#171717}
-header{background:#111;color:white;padding:20px;text-align:center}
-.logo{font-size:30px;font-weight:900;letter-spacing:5px}
-.logo span{color:#c5a46d}
-nav{margin-top:15px}
-nav a{color:white;text-decoration:none;margin:0 12px;font-size:13px}
-.hero{background:#171717;color:white;text-align:center;padding:80px 20px}
-.hero h1{font-size:45px;letter-spacing:4px}
-.hero p{margin:20px 0;color:#ccc}
-.btn{display:inline-block;background:#c5a46d;color:#111;padding:13px 25px;text-decoration:none;font-weight:bold;border:none;cursor:pointer}
-section{padding:50px 20px}
-h2{text-align:center;margin-bottom:30px;letter-spacing:2px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1000px;margin:auto}
-.card{background:white;padding:15px;text-align:center;border:1px solid #eee}
-.product-img{height:220px;background:#e8e5df;display:flex;align-items:center;justify-content:center;font-size:50px}
-.card h3{margin:15px 0 8px}
-.price{color:#9c7b43;font-weight:bold;margin-bottom:15px}
-.card button{width:100%}
-.story{text-align:center;background:#eee;padding:60px 20px}
-.story p{max-width:650px;margin:auto;line-height:1.8;color:#555}
-footer{background:#111;color:white;text-align:center;padding:35px 20px}
-footer a{color:#c5a46d}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 20px;border-radius:40px;text-decoration:none;font-weight:bold;box-shadow:0 4px 15px #0003}
+:root {
+  --bg:#080808;
+  --surface:#111;
+  --text:#f5f0e6;
+  --gold:#d7b46b;
+  --muted:#a7a39a;
+  --line:#292722;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.55 Arial,sans-serif;
+}
+a {color:inherit;text-decoration:none}
+button,input {font:inherit}
+button {cursor:pointer}
+.wrap {max-width:1200px;margin:auto;padding:0 22px}
+.announcement {
+  text-align:center;background:var(--gold);color:#000;
+  padding:8px;font-size:11px;letter-spacing:2px;
+}
+header {
+  position:sticky;top:0;background:#080808ed;
+  border-bottom:1px solid var(--line);z-index:10;
+}
+.nav {
+  height:75px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
+}
+.brand {
+  font:700 27px Georgia,serif;letter-spacing:3px;
+  color:var(--gold);text-align:center;
+}
+.brand small {
+  display:block;color:white;font:9px Arial;
+  letter-spacing:4px;margin-top:5px;
+}
+.navlinks {display:flex;gap:22px;font-size:12px}
+.navlinks a:hover {color:var(--gold)}
+.iconbtn {
+  background:none;border:1px solid var(--line);
+  color:white;padding:10px;
+}
+.hero {
+  min-height:580px;display:flex;align-items:center;
+  background:radial-gradient(ellipse at 75% 45%,#342716,#080808 65%);
+}
+.hero-content {max-width:700px;padding:90px 0}
+.kicker {
+  font-size:11px;letter-spacing:4px;
+  color:var(--gold);text-transform:uppercase;
+}
+.hero h1 {
+  font:clamp(55px,9vw,100px)/.95 Georgia,serif;
+  margin:22px 0;
+}
+.hero h1 em {color:var(--gold);font-weight:normal}
+.hero p {color:#bbb;max-width:500px;margin-bottom:30px}
+.btn {
+  display:inline-block;background:var(--gold);
+  color:#000;padding:14px 20px;
+  border:1px solid var(--gold);
+  font-weight:bold;font-size:12px;letter-spacing:1px;
+}
+.btn.secondary {background:none;color:var(--gold)}
+.actions {display:flex;gap:12px;flex-wrap:wrap}
+.trust {
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-block:1px solid var(--line);
+}
+.trust div {
+  text-align:center;padding:20px 8px;
+  color:#aaa;font-size:12px;
+}
+.trust b {display:block;color:var(--gold);margin-bottom:5px}
+section {padding:75px 0}
+.sectionhead {margin-bottom:28px}
+.sectionhead h2 {font:40px Georgia,serif;margin:8px 0}
+.filters {display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filter {
+  background:none;color:#ccc;border:1px solid var(--line);
+  padding:9px 14px;font-size:12px;
+}
+.filter.active,.filter:hover {border-color:var(--gold);color:var(--gold)}
+.products {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:17px;
+}
+.card {background:var(--surface);border:1px solid var(--line)}
+.photo {aspect-ratio:4/5;overflow:hidden;position:relative}
+.photo img {width:100%;height:100%;object-fit:cover}
+.tag {
+  position:absolute;top:10px;left:10px;
+  background:var(--gold);color:#000;padding:5px;font-size:10px;
+}
+.heart {
+  position:absolute;top:10px;right:10px;
+  background:#000b;color:white;border:0;
+  border-radius:50%;width:35px;height:35px;
+}
+.heart.on {color:red}
+.cardbody {padding:14px}
+.cardbody h3 {font-size:14px;font-weight:normal}
+.price {color:var(--gold);font-weight:bold}
+.old {text-decoration:line-through;color:#777;font-size:12px}
+.cardbody .add {
+  width:100%;margin-top:12px;padding:10px;
+  background:none;border:1px solid var(--gold);color:var(--gold);
+}
+.promo {
+  padding:40px;border:1px solid #49371d;
+  background:linear-gradient(110deg,#21180b,#0d0d0d);
+}
+.promo h2 {font:40px Georgia,serif}
+.promo p {color:#aaa}
+.story {display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.storyart {
+  min-height:300px;display:grid;place-items:center;
+  border:1px solid #49371d;color:var(--gold);
+  background:radial-gradient(circle,#3b2b12,#111);
+  font:80px Georgia,serif;
+}
+.story h2 {font:40px Georgia,serif}
+.story p {color:#aaa;line-height:1.9}
+.newsletter {
+  text-align:center;padding:35px;
+  background:#111;border:1px solid var(--line);
+}
+.newsform {display:flex;max-width:450px;margin:20px auto}
+.newsform input {
+  flex:1;min-width:0;padding:12px;
+  background:#080808;border:1px solid #333;color:white;
+}
+footer {border-top:1px solid var(--line);padding:45px 0;color:#aaa}
+.footgrid {display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+.footgrid a {display:block;margin:8px 0;font-size:13px}
+.copyright {border-top:1px solid var(--line);margin-top:25px;padding-top:15px}
+.overlay {
+  display:none;position:fixed;inset:0;background:#000b;
+  z-index:30;align-items:center;justify-content:center;padding:15px;
+}
+.overlay.open {display:flex}
+.dialog {
+  background:#111;border:1px solid #49371d;
+  width:min(600px,100%);max-height:90vh;
+  overflow:auto;padding:22px;
+}
+.dialoghead {display:flex;justify-content:space-between}
+.dialoghead h2 {font:28px Georgia,serif}
+.x {background:none;border:0;color:white;font-size:25px}
+.cartline {
+  display:flex;justify-content:space-between;
+  gap:10px;border-bottom:1px solid var(--line);padding:13px 0;
+}
+.qty {display:flex;align-items:center;gap:7px}
+.qty button {background:#222;color:white;border:1px solid #444;padding:5px 9px}
+.total {display:flex;justify-content:space-between;padding:18px 0}
+.field {display:block;margin:12px 0;color:#aaa;font-size:12px}
+.field input,.field textarea,.field select {
+  width:100%;padding:12px;background:#080808;
+  border:1px solid #333;color:white;margin-top:5px;
+}
+.formbtn {width:100%}
+.hint {font-size:11px;color:#999}
+.toast {
+  position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%);background:var(--gold);
+  color:#000;padding:12px;display:none;z-index:50;
+}
+.toast.show {display:block}
+
+@media(max-width:900px) {
+  .products {grid-template-columns:repeat(2,1fr)}
+  .trust {grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px) {
+  .navlinks {display:none}
+  .hero {min-height:500px}
+  .hero-content {padding:60px 0}
+  .sectionhead h2 {font-size:32px}
+  .story {grid-template-columns:1fr}
+  .footgrid {grid-template-columns:1fr 1fr}
+  .footgrid>div:first-child {grid-column:1/-1}
+}
 </style>
 </head>
 
 <body>
 
+<div class="announcement">
+COMPLIMENTARY STYLE • NEW COLLECTION AVAILABLE
+</div>
+
 <header>
-<div class="logo">7<span>ELITE</span></div>
-<nav>
+<div class="wrap nav">
+<a href="#home" class="brand">7ELITE<small>CLOTHING CO.</small></a>
+
+<nav class="navlinks">
 <a href="#home">HOME</a>
 <a href="#shop">SHOP</a>
-<a href="#story">ABOUT</a>
+<a href="#story">OUR STORY</a>
 <a href="#contact">CONTACT</a>
 </nav>
+
+<div>
+<button class="iconbtn" onclick="showWishlist()">♡ <span id="wishCount">0</span></button>
+<button class="iconbtn" onclick="openCart()">BAG (<span id="bagCount">0</span>)</button>
+</div>
+</div>
 </header>
 
+<main>
+
 <section class="hero" id="home">
-<h1>ELEVATE YOUR STYLE</h1>
-<p>Premium Essentials. Timeless Fashion. Everyday Luxury.</p>
-<a href="#shop" class="btn">SHOP COLLECTION</a>
+<div class="wrap hero-content">
+<div class="kicker">Designed for everyday distinction</div>
+<h1>Wear the<br><em>Elite.</em></h1>
+<p>Refined essentials. Clean silhouettes. A confident attitude—built into every detail.</p>
+<div class="actions">
+<a class="btn" href="#shop">SHOP COLLECTION ↗</a>
+<a class="btn secondary" href="#story">DISCOVER 7ELITE</a>
+</div>
+</div>
 </section>
+
+<div class="wrap trust">
+<div><b>TIMELESS DESIGN</b>Styles beyond trends</div>
+<div><b>EVERYDAY COMFORT</b>Made for daily wear</div>
+<div><b>SECURE ORDER</b>Confirm via WhatsApp</div>
+<div><b>LOCAL SUPPORT</b>Bangladesh based</div>
+</div>
 
 <section id="shop">
-<h2>OUR COLLECTION</h2>
-<div class="products">
-
-<div class="card">
-<div class="product-img">👕</div>
-<h3>Black Essential Tee</h3>
-<div class="price">৳850</div>
-<button class="btn" onclick="order('Black Essential Tee',850)">ORDER NOW</button>
+<div class="wrap">
+<div class="sectionhead">
+<div class="kicker">THE EDIT</div>
+<h2>Shop the collection</h2>
+<p>Essentials for your own signature style.</p>
 </div>
 
-<div class="card">
-<div class="product-img">👕</div>
-<h3>Ivory Essential Tee</h3>
-<div class="price">৳850</div>
-<button class="btn" onclick="order('Ivory Essential Tee',850)">ORDER NOW</button>
+<div class="filters">
+<button class="filter active" data-cat="All">All products</button>
+<button class="filter" data-cat="T-Shirts">T-Shirts</button>
+<button class="filter" data-cat="Shirts">Shirts</button>
+<button class="filter" data-cat="Pants">Pants</button>
 </div>
-
-<div class="card">
-<div class="product-img">👔</div>
-<h3>Classic Oxford Shirt</h3>
-<div class="price">৳1450</div>
-<button class="btn" onclick="order('Classic Oxford Shirt',1450)">ORDER NOW</button>
-</div>
-
-<div class="card">
-<div class="product-img">👖</div>
-<h3>Straight Fit Pants</h3>
-<div class="price">৳1650</div>
-<button class="btn" onclick="order('Straight Fit Pants',1650)">ORDER NOW</button>
-</div>
-
+<div class="products" id="products"></div>
 </div>
 </section>
 
-<section class="story" id="story">
-<h2>THE 7ELITE STORY</h2>
-<p>
-7ELITE represents confidence, timeless style, and everyday luxury.
-Our mission is to bring premium fashion and classic essentials
-to people who appreciate quality and simplicity.
-</p>
+<section class="wrap">
+<div class="promo">
+<div class="kicker">THE 7ELITE STANDARD</div>
+<h2>Less noise. More identity.</h2>
+<p>Build a wardrobe that feels unmistakably yours—with versatile pieces and a premium everyday look.</p>
+<a class="btn" href="#shop">EXPLORE PRODUCTS</a>
+</div>
 </section>
+
+<section id="story">
+<div class="wrap story">
+<div class="storyart">7ELITE</div>
+<div>
+<div class="kicker">OUR PHILOSOPHY</div>
+<h2>Classic looks.<br><span style="color:var(--gold)">Modern attitude.</span></h2>
+<p>7ELITE is built around a simple idea: style should feel effortless and confident. We focus on versatile essentials, thoughtful presentation, and a shopping experience that respects your time.</p>
+<a class="btn secondary" href="#contact">GET IN TOUCH</a>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap newsletter">
+<div class="kicker">STAY IN THE LOOP</div>
+<h2>Join the 7ELITE list</h2>
+<p>Get collection updates and offers. (Demo signup—no emails are stored.)</p>
+<form class="newsform" onsubmit="newsletter(event)">
+<input type="email" required placeholder="Your email address">
+<button class="btn">JOIN</button>
+</form>
+</div>
+</section>
+
+</main>
 
 <footer id="contact">
-<h2>7ELITE</h2>
-<p>Premium Clothing | Bangladesh</p>
-<p>WhatsApp: 01330733807</p>
-<p>© 2026 7ELITE. All Rights Reserved.</p>
+<div class="wrap">
+<div class="footgrid">
+<div>
+<a class="brand" href="#home">7ELITE<small>CLOTHING CO.</small></a>
+<p>Wear the Elite. Everyday essentials with confidence.</p>
+<a class="btn secondary" href="https://wa.me/880133073807" target="_blank">WHATSAPP US ↗</a>
+</div>
+<div>
+<h4>EXPLORE</h4>
+<a href="#shop">Shop</a>
+<a href="#story">Our Story</a>
+<a href="#home">Back to top ↑</a>
+</div>
+<div>
+<h4>HELP</h4>
+<a href="https://wa.me/880133073807" target="_blank">Contact</a>
+<a href="#contact">Delivery & Returns*</a>
+<a href="#contact">Privacy*</a>
+</div>
+</div>
+<div class="copyright">
+© <span id="year"></span> 7ELITE Clothing Co.
+</div>
+</div>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/8801330733807" target="_blank">WhatsApp</a>
+<div class="overlay" id="cartOverlay" onclick="outsideClose(event,'cartOverlay')">
+<div class="dialog">
+<div class="dialoghead">
+<h2>Your shopping bag</h2>
+<button class="x" onclick="closeCart()">×</button>
+</div>
+<div id="cartContents"></div>
+<div class="total"><span>Subtotal</span><strong id="subtotal">৳0</strong></div>
+<p class="hint">Delivery charge will be confirmed by the seller.</p>
+<button class="btn formbtn" onclick="checkout()">PROCEED TO CHECKOUT</button>
+</div>
+</div>
+
+<div class="overlay" id="checkoutOverlay" onclick="outsideClose(event,'checkoutOverlay')">
+<div class="dialog">
+<div class="dialoghead">
+<h2>Checkout</h2>
+<button class="x" onclick="closeCheckout()">×</button>
+</div>
+
+<form id="checkoutForm">
+<label class="field">Full name<input name="name" required></label>
+<label class="field">Phone number<input name="phone" required></label>
+<label class="field">Delivery address<textarea name="address" required rows="3"></textarea></label>
+<label class="field">Payment method
+<select name="payment">
+<option>Cash on Delivery</option>
+<option>bKash (confirm manually)</option>
+<option>Nagad (confirm manually)</option>
+</select>
+</label>
+<button class="btn formbtn">SEND ORDER TO WHATSAPP ↗</button>
+<p class="hint">No online payment is taken on this website.</p>
+</form>
+</div>
+</div>
+
+<div class="overlay" id="wishlistOverlay" onclick="outsideClose(event,'wishlistOverlay')">
+<div class="dialog">
+<div class="dialoghead">
+<h2>Your wishlist</h2>
+<button class="x" onclick="closeWishlist()">×</button>
+</div>
+<div id="wishlistItems"></div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-function order(product,price){
-let message="Hello 7ELITE! I want to order: "+product+
-" | Price: ৳"+price;
-window.open("https://wa.me/8801330733807?text="+encodeURIComponent(message),"_blank");
-}
-</script>
+const catalog = [
+{id:1,name:"Black Essential Tee",category:"T-Shirts",price:850,size:"S,M,L,XL",tag:"BESTSELLER",image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85"},
+{id:2,name:"Ivory Essential Tee",category:"T-Shirts",price:850,size:"S,M,L,XL",tag:"NEW",image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85"},
+{id:3,name:"Classic Oxford Shirt",category:"Shirts",price:1450,size:"M,L,XL",tag:"",image:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85"},
+{id:4,name:"Straight Fit Pants",category:"Pants",price:1650,size:"28,30,32,34",tag:"",image:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=85"},
+{id:5,name:"Minimal Oversized Tee",category:"T-Shirts",price:950,size:"M,L,XL",tag:"",image:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=800&q=85"},
+{id:6,name:"Everyday Shirt",category:"Shirts",price:1350,size:"M,L,XL",tag:"",image:"https://placehold.co/600x750/171717/d7b46b?text=7ELITE"}
+];
 
+let cart = JSON.parse(localStorage.getItem("7elite_cart") || "[]");
+let wishlist = JSON.parse(localStorage.getItem("7elite_wishlist") || "[]");
+let category = "All";
+
+const fmt = n => "৳" + Number(n).toLocaleString("en-BD");
+
+function toast(message) {
+  let t = document.getElementById("toast");
+  t.textContent = message;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2000);
+}
+
+function renderProducts() {
+  let list = catalog.filter(p => category==="All" || p.category===category);
+  document.getElementById("products").innerHTML = list.map(p=>`
+  <article class="card">
+    <div class="photo">
+      <img src="${p.image}" alt="${p.name}" loading="lazy">
+      ${p.tag?`<span class="tag">${p.tag}</span>`:""}
+      <button class="heart ${wishlist.includes(p.id)?"on":""}" onclick="toggleWish(${p.id})">${wishlist.includes(p.id)?"♥":"♡"}</button>
+    </div>
+    <div class="cardbody">
+      <h3>${p.name}</h3>
+      <div class="price">${fmt(p.price)}</div>
+      <small>Sizes: ${p.size}</small>
+      <button class="add" onclick="addCart(${p.id})">ADD TO BAG +</button>
+    </div>
+  </article>`).join("");
+}
+
+document.querySelectorAll(".filter").forEach(b=>{
+  b.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    category=b.dataset.cat;
+    renderProducts();
+  });
+});
+
+function saveCart() {
+  localStorage.setItem("7elite_cart",JSON.stringify(cart));
+  document.getElementById("bagCount").textContent=cart.reduce((s,i)=>s+i.qty,0);
+}
+
+function addCart(id) {
+  let p=catalog.find(x=>x.id===id);
+  let i=cart.find(x=>x.id===id);
+  if(i)i.qty++;
+  else cart.push({...p,qty:1});
+  saveCart();
+  toast(p.name+" added to bag");
+}
+
+function changeQty(id,d) {
+  let i=cart.find(x=>x.id===id);
+  if(!i)return;
+  i.qty+=d;
+  if(i.qty<=0)cart=cart.filter(x=>x.id!==id);
+  saveCart();renderCart();
+}
+
+function removeCart(id) {
+  cart=cart.filter(x=>x.id!==id);
+  saveCart();renderCart();
+}
+
+function renderCart() {
+  let el=document.getElementById("cartContents");
+  if(!cart.length){
+    el.innerHTML="<p>Your bag is empty.</p>";
+    document.getElementById("subtotal").textContent=fmt(0);
+    return;
+  }
+  el.innerHTML=cart.map(i=>`
+  <div class="cartline">
+    <div><b>${i.name}</b><small>${fmt(i.price)} each</small>
+    <button class="filter" onclick="removeCart(${i.id})">Remove</button></div>
+    <div class="qty">
+      <button onclick="changeQty(${i.id},-1)">−</button>
+      ${i.qty}
+      <button onclick="changeQty(${i.id},1)">+</button>
+    </div>
+  </div>`).join("");
+  document.getElementById("subtotal").textContent=fmt(cart.reduce((s,i)=>s+i.price*i.qty,0));
+}
+
+function openCart(){
+  renderCart();
+  document.getElementById("cartOverlay").classList.add("open");
+}
+function closeCart(){document.getElementById("cartOverlay").classList.remove("open")}
+function checkout(){
+  if(!cart.length){toast("Your bag is empty");return}
+  closeCart();
+  document.getElementById("checkoutOverlay").classList.add("open");
+}
+function closeCheckout(){document.getElementById("checkoutOverlay").classList.remove("open")}
+function outsideClose(e,id){
+  if(e.target.id===id)document.getElementById(id).classList.remove("open");
+}
+
+function toggleWish(id){
+  wishlist.includes(id)?wishlist=wishlist.filter(x=>x!==id):wishlist.push(id);
+  localStorage.setItem("7elite_wishlist",JSON.stringify(wishlist));
+  document.getElementById("wishCount").textContent=wishlist.length;
+  renderProducts();
+}
+function showWishlist(){
+  let items=catalog.filter(p=>wishlist.includes(p.id));
+  document.getElementById("wishlistItems").innerHTML=items.length?
+    items.map(p=>`<div class="cartline"><b>${p.name} — ${fmt(p.price)}</b><button class="filter" onclick="addCart(${p.id})">ADD TO BAG</button></div>`).join("")
+    :"<p>Your wishlist is empty.</p>";
+  document.getElementById("wishlistOverlay").classList.add("open");
+}
+function closeWishlist(){document.getElementById("wishlistOverlay").classList.remove("open")}
+
+document.getElementById("checkoutForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  if(!cart.length){toast("Your bag is empty");return}
+  let f=new FormData(e.target);
+  let lines=cart.map(i=>`${i.name} x${i.qty} — ${fmt(i.price*i.qty)}`).join("\n");
+  let total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  let message=`7ELITE ORDER
+Name: ${f.get("name")}
+Phone: ${f.get("phone")}
+Address: ${f.get("address")}
+Payment: ${f.get("payment")}
+
+${lines}
+
+Subtotal: ${fmt(total)}
+Delivery: to confirm`;
+  window.open("https://wa.me/880133073807?text="+encodeURIComponent(message),"_blank");
+});
+
+function newsletter(e){
+  e.preventDefault();
+  toast("Thanks! Demo signup only.");
+  e.target.reset();
+}
+
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();
+saveCart();
+document.getElementById("wishCount").textContent=wishlist.length;
+</script>
 </body>
   </html>
-
+  
